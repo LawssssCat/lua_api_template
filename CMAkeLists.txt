@@ -1,0 +1,8 @@
+project(lua_api_template)
+
+set(TEMPLATE_ROOT ${CMAKE_SOURCE_DIR})
+
+# include(cmakeconf/compiler_conf.cmake)
+include(cmakeconf/building_output.cmake)
+
+add_subdirectory(3rd)
