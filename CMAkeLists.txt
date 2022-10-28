@@ -1,3 +1,5 @@
+cmake_minimum_required(VERSION 3.24)
+
 project(lua_api_template)
 
 set(TEMPLATE_ROOT ${CMAKE_SOURCE_DIR})
@@ -6,3 +8,4 @@ set(TEMPLATE_ROOT ${CMAKE_SOURCE_DIR})
 include(cmakeconf/building_output.cmake)
 
 add_subdirectory(3rd)
+add_subdirectory(samples)

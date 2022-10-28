@@ -43,3 +43,12 @@ target_sources(lua_lib
 PRIVATE 
   ${LUA_LIB_SOURCES}
 )
+# 重命名
+SET_TARGET_PROPERTIES(lua_lib PROPERTIES OUTPUT_NAME "lua")
+SET_TARGET_PROPERTIES(lua_lib PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+
+
+target_include_directories(lua_lib
+INTERFACE
+    ${TEMPLATE_ROOT}/3rd
+)
