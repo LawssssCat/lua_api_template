@@ -7,6 +7,11 @@ extern "C" {
   #include <lua/lauxlib.h>
 }
 
+/*
+程序目的：
+1. 开启 lua 虚拟机
+*/
+
 int main() {
   // lua_State 可以理解为一个 lua 代码的运行环境(虚拟机)
   // 1. 创建 lua 虚拟机
