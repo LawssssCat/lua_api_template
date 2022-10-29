@@ -1,0 +1,11 @@
+add_executable(require_ref)
+
+target_sources(require_ref
+PRIVATE
+  ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
+)
+
+target_link_libraries(require_ref
+PRIVATE
+  lua_lib
+)
