@@ -27,9 +27,10 @@ hello()
 
 int main() {
   lua_State* state = luaL_newstate();
-  luaL_openlibs(state); {
-    printf("lua run ok!\n");
-    auto rst = luaL_loadbuffer(state, script, strlen(script), "hello"); // 加载脚本
+  luaL_openlibs(state); // 栈情况： []
+  {
+    printf("lua init ok!\n");
+    auto rst = luaL_loadbuffer(state, script, strlen(script), "hello"); // 加载脚本 chunk。 栈情况： [chunk]
     if(rst != 0) { // 加载失败
       if(lua_isstring(state, -1)) {
         auto msg = lua_tostring(state, -1); // 栈顶
@@ -38,7 +39,8 @@ int main() {
       }
       return -1;
     }
-    auto f = lua_pcall(state, 0, 0, 0); // 不设置参数，返回，错误
+    printf("lua load ok!\n");
+    auto f = lua_pcall(state, 0, 0, 0); // 不设置参数，返回，错误。 栈情况： [] 或者 ["lua error message..."]
     if(f) { // 返回不为 0，说明有错误
       if(lua_isstring(state, -1)) {
         auto msg = lua_tostring(state, -1);
@@ -47,6 +49,7 @@ int main() {
       }
       return -1;
     }
+    printf("lua run ok!\n");
   }
   lua_close(state);
   return 0;
